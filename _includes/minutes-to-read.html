@@ -1,0 +1,12 @@
+<!-- Segundo informações do wikipedia, o ser humano lê 180 palavras em 1 minuto, logo:
+1 min = 180 words
+2 min = 320 words
+3 min = 540 words -->
+
+{% assign words = content | number_of_words %}
+
+{% if words < 240 %}
+  {% assign minutesText = '1 minuto para ler' %}
+{% else %}
+  {% assign minutesText = words | | divided_by: 180 | | append: 'minutos para ler' }} %}
+{% endif %}
