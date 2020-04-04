@@ -1,0 +1,11 @@
+Não esquecer de adicionar o favicon e seus links do site https://realfavicongenerator.net/
+
+Sempre que for utilizar SVG no servidores na locaweb, utilizar o comando abaixo no arquivo webconfig:
+
+<configuration>
+   <system.webServer>
+      <staticContent>
+         <mimeMap fileExtension=".svg" mimeType="image/svg+xml"/>
+      </staticContent>
+   </system.webServer>
+</configuration>
