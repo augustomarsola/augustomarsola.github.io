@@ -1,3 +1,4 @@
+//  'use strict';
 var gulp = require('gulp');
 var sass = require('gulp-sass'); //Compile Sass
 var cssnano = require('gulp-cssnano'); //Minify CSS
@@ -8,8 +9,6 @@ var autoprefixer = require('gulp-autoprefixer'); //Autoprefixer for old browsers
 var uglify = require('gulp-uglify'); //Minify JS
 const imagemin = require('gulp-imagemin'); //Minify imgs
 var sourcemaps = require('gulp-sourcemaps'); //Create map for CSS and JS
-var gutil = require( 'gulp-util' ); //For FTP
-var ftp = require( 'vinyl-ftp' ); //For FTP
 
 // Variables
 
@@ -31,40 +30,13 @@ var sassOutput = {
 var jsFiles = './src/js/*.js';
 
 //JS destination
-var jsDest = './js'
+var jsDest = './js';
 
 //img source
 var imgFiles = './src/img/**/*';
 
 //img destination
 var imgDest = './img';
-
-//Files for deploy in FTP
-var globs = [
-  'img/**',
-  'src/**',
-  'css/**',
-  'js/**',
-];
-
-//Infos for deploy FTP
-var user = 'user';  
-var password = 'pass';  
-var host = 'host';  
-var port = 21; 
-var remoteFolder = '/path';
-
-//Function for deploy FTP
-function getFtpConnection() {  
-  return ftp.create({
-      host: host,
-      port: port,
-      user: user,
-      password: password,
-      parallel: 5,
-      log: gutil.log
-  });
-}
 
 // Tasks
 
@@ -78,10 +50,7 @@ gulp.task('sassrun', function() {
       .pipe(postcss([
         mqpacker()
       ]))
-      .pipe(autoprefixer({
-        browsers: ['> 1%', 'last 2 versions'],
-        cascade: false
-      }))
+      .pipe(autoprefixer('last 2 versions'))
     .pipe(sourcemaps.write(mapDest))
     .pipe(gulp.dest(cssDest));
 });
@@ -91,7 +60,7 @@ gulp.task('minjs', function() {
   return gulp.src(jsFiles)
     .pipe(sourcemaps.init())
       .pipe(rename('main.min.js'))
-      .pipe(uglify())
+      // .pipe(uglify())
     .pipe(sourcemaps.write(mapDest))
     .pipe(gulp.dest(jsDest));
 });
@@ -103,24 +72,12 @@ gulp.task('minimg', function() {
     .pipe(gulp.dest(imgDest));
 });
 
-// Task 'ftp-deploy' - Run with command 'gulp ftp-deploy'
-gulp.task('ftp-deploy', function () {
-  var conn = getFtpConnection();
-  return gulp.src(globs, {
-      base: '.',
-      buffer: false
-    })
-    .pipe(conn.newer(remoteFolder)) // only upload newer files 
-    .pipe(conn.dest(remoteFolder));
-});
-
 // Task 'watch' - Run with command 'gulp watch'
 gulp.task('watch', function() {
-  gulp.watch(scssFiles, ['sassrun']);
-  gulp.watch(jsFiles, ['minjs']);
-  gulp.watch(imgFiles, ['minimg']);
-  gulp.watch(globs, ['ftp-deploy']);
+  gulp.watch(scssFiles, gulp.series('sassrun'));
+  gulp.watch(jsFiles, gulp.series('minjs'));
+  gulp.watch(imgFiles, gulp.series('minimg'));
 });
 
 // Default task - Run witch command 'gulp'
-gulp.task('default', ['sassrun', 'minjs', 'minimg', 'ftp-deploy', 'watch']);
+gulp.task('default', gulp.series('sassrun', 'minjs', 'minimg', 'watch'));
