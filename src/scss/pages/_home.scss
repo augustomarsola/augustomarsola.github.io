@@ -1,0 +1,55 @@
+@keyframes bounce-arrow {
+  0% {
+    top: 0px;
+  }
+
+  100% {
+    top: 10px;
+  }
+}
+
+.header-bg {
+  background-color: $pri-color1;
+  color: $pri-color2;
+}
+
+.particles-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: $pri-color1;
+}
+
+.home-resume {
+  font-weight: 300;
+  font-size: em(22);
+  margin-bottom: em(50);
+  @include d(md) {
+    font-size: em(38);
+  }
+}
+
+.main-content {
+  min-height: calc(100vh - 60px);
+}
+
+.links-augustoProfile {
+  text-align: center;
+}
+
+.linkProfile {
+  background: $pri-color2;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin: em(20) em(5);
+  @include d(sm) {
+    width: em(50);
+    height: em(50);
+  }
+}
