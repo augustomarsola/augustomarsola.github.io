@@ -25,7 +25,7 @@
 .home-resume {
   font-weight: 300;
   font-size: em(22);
-  margin-bottom: em(50);
+  padding-bottom: em(50);
   @include d(md) {
     font-size: em(38);
   }
@@ -40,16 +40,123 @@
 }
 
 .linkProfile {
-  background: $pri-color2;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
   height: 40px;
   width: 40px;
-  border-radius: 50%;
   margin: em(20) em(5);
   @include d(sm) {
     width: em(50);
     height: em(50);
+  }
+}
+
+.img-lang {
+  max-width: 100%;
+  margin-right: em(10);
+  margin-bottom: em(10);
+  outline: none;
+  filter: grayscale(100%);
+  transition: .3s ease-out;
+  &:hover, &:focus {
+    filter: grayscale(0);
+  }
+}
+
+.check-know {
+  max-width: 100%;
+  margin-bottom: 4px;
+}
+
+.project-content {
+  border: solid 1px $sec-color2;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.project-img img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: em(250);
+  object-fit: cover;
+  object-position: center;
+}
+
+.project-descr {
+  padding: em(20);
+  h4 {
+    font-weight: 500;
+    font-size: em(20);
+  }
+}
+
+.projTag {
+  display: inline-block;
+  border-radius: 100px;
+  background: $sec-color2;
+  color: $sec-color1;
+  font-size: em(14);
+  padding: 0 em(8);
+  margin-right: em(5);
+}
+
+.project-link a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: em(50);
+  position: relative;
+  color: $pri-color2;
+  background-color: $pri-color1;
+  border-top: 1px solid $pri-color1;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  overflow: hidden;
+  -webkit-transition: .3s ease-out;
+  transition: .3s ease-out;
+
+  svg {
+    margin-right: 5px;
+  }
+
+  path {
+    transition: .3s ease-out;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $pri-color2;
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-transition-property: -webkit-transform;
+    transition-property: -webkit-transform;
+    transition-property: transform;
+    transition-property: transform, -webkit-transform;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+
+  &:hover, &:focus {
+    color: $pri-color1;
+    text-decoration: none;
+
+    path {
+      fill: $pri-color1;
+    }
+
+    &::before {
+      -webkit-transform: scaleY(1);
+      transform: scaleY(1);
+    }
   }
 }

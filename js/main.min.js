@@ -13,7 +13,6 @@ $(document).ready(function () {
    //Habilita o tooltip
    tippy('[data-tippy-content]', {
     interactive: true,
-    theme: 'light',
    });
 
    backTop();
@@ -60,7 +59,7 @@ function smoothScroll() {
 //Function like scrollSpy
 function scrollView() {
 
-  $('.menu-href').each(function(){
+  $('.menu-linkA').each(function(){
     var height = $(this).height(),
         offsetTop = $(this).offset().top,
         menuHeight = $('.menu-header').innerHeight(),
