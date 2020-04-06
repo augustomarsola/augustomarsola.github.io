@@ -288,17 +288,6 @@ perspective: 1000;
   justify-content: center;
   align-items: center;
   margin-bottom: em(10);
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: em(40);
-    left: calc(50% - 100px);
-    display: inline-block;
-    height: 2px;
-    width: 200px;
-    background: $sec-color2;
-  }
 }
 
 .fLink {
