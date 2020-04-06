@@ -257,6 +257,7 @@ perspective: 1000;
 
 .default-title {
   font-size: em(26);
+  margin-bottom: 30px;
   @include d(sm) {
     font-size: em(32);
   }
@@ -278,6 +279,39 @@ perspective: 1000;
 
 .content-esp {
   margin-bottom: em(30);
+}
+
+.footer-links {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: em(10);
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: em(40);
+    left: calc(50% - 100px);
+    display: inline-block;
+    height: 2px;
+    width: 200px;
+    background: $sec-color2;
+  }
+}
+
+.fLink {
+  display: inline-block;
+  margin: 0 em(10);
+  margin-top: em(10);
+  text-transform: uppercase;
+  text-decoration: underline;
+  color: $sec-color2;
+
+  &:hover {
+    color: $pri-color1;
+  }
 }
 
 /* Back To Top */
