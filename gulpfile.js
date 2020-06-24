@@ -1,79 +1,83 @@
+/* eslint-disable func-names */
 //  'use strict';
-var gulp = require('gulp');
-var sass = require('gulp-sass'); //Compile Sass
-var cssnano = require('gulp-cssnano'); //Minify CSS
-var rename = require('gulp-rename'); //Rename Files
-var postcss = require('gulp-postcss'); //Concate CSS
-var mqpacker = require('css-mqpacker'); //Concate de media queries CSS
-var autoprefixer = require('gulp-autoprefixer'); //Autoprefixer for old browsers
-var uglify = require('gulp-uglify'); //Minify JS
-const imagemin = require('gulp-imagemin'); //Minify imgs
-var sourcemaps = require('gulp-sourcemaps'); //Create map for CSS and JS
+const gulp = require('gulp');
+const sass = require('gulp-sass'); // Compile Sass
+const cssnano = require('gulp-cssnano'); // Minify CSS
+const rename = require('gulp-rename'); // Rename Files
+const postcss = require('gulp-postcss'); // Concate CSS
+const mqpacker = require('css-mqpacker'); // Concate de media queries CSS
+const autoprefixer = require('gulp-autoprefixer'); // Autoprefixer for old browsers
+const imagemin = require('gulp-imagemin'); // Minify imgs
+const webpack = require('webpack-stream');
+const sourcemaps = require('gulp-sourcemaps'); // Create map for CSS and JS
+const webpackConfig = require('./webpack.config.js');
 
 // Variables
 
-//External map destination
-var mapDest = './map';
+// External map destination
+const mapDest = './map';
 
 // Sass source
-var scssFiles = './src/scss/**/*.scss';
+const scssFiles = './src/scss/**/*.scss';
 
 // CSS destination
-var cssDest = './css';
+const cssDest = './css';
 
 // Sass output style = expanded and compressed options
-var sassOutput = {
-  outputStyle: 'expanded'
+const sassOutput = {
+  outputStyle: 'expanded',
 };
 
 // JS source
-var jsFiles = './src/js/*.js';
+const jsFiles = './src/js/script.js';
 
-//JS destination
-var jsDest = './js';
+// JS destination
+const jsDest = './js/';
 
-//img source
-var imgFiles = './src/img/**/*';
+// img source
+const imgFiles = './src/img/**/*';
 
-//img destination
-var imgDest = './img';
+// img destination
+const imgDest = './img';
 
 // Tasks
 
 // Task 'sassrun' - Run with command 'gulp sass'
-gulp.task('sassrun', function() {
-  return gulp.src(scssFiles)
+gulp.task('sassrun', function () {
+  return gulp
+    .src(scssFiles)
     .pipe(sourcemaps.init())
-      .pipe(sass(sassOutput).on('error', sass.logError))
-      .pipe(rename('style.min.css'))
-      .pipe(cssnano())
-      .pipe(postcss([
-        mqpacker()
-      ]))
-      .pipe(autoprefixer('last 2 versions'))
+    .pipe(sass(sassOutput).on('error', sass.logError))
+    .pipe(rename('style.min.css'))
+    .pipe(cssnano())
+    .pipe(postcss([mqpacker()]))
+    .pipe(autoprefixer('last 2 versions'))
     .pipe(sourcemaps.write(mapDest))
     .pipe(gulp.dest(cssDest));
 });
 
 // Task 'minjs' - Run with command 'gulp minjs'
-gulp.task('minjs', function() {
-  return gulp.src(jsFiles)
+gulp.task('minjs', function () {
+  return gulp
+    .src(jsFiles)
     .pipe(sourcemaps.init())
-      .pipe(rename('main.min.js'))
-      // .pipe(uglify())
+    .pipe(rename('main.min.js'))
+    .pipe(
+      webpack({
+        config: webpackConfig,
+      }),
+    )
     .pipe(sourcemaps.write(mapDest))
     .pipe(gulp.dest(jsDest));
 });
 
-//Task 'minimg' - Run with command 'gulp mimimg'
-gulp.task('minimg', function() {
-  return gulp.src(imgFiles)
-    .pipe(imagemin())
-    .pipe(gulp.dest(imgDest));
+// Task 'minimg' - Run with command 'gulp mimimg'
+gulp.task('minimg', function () {
+  return gulp.src(imgFiles).pipe(imagemin()).pipe(gulp.dest(imgDest));
 });
 
 // Task 'watch' - Run with command 'gulp watch'
-gulp.task('watch', function() {
+gulp.task('watch', function () {
   gulp.watch(scssFiles, gulp.series('sassrun'));
   gulp.watch(jsFiles, gulp.series('minjs'));
   gulp.watch(imgFiles, gulp.series('minimg'));
