@@ -7,6 +7,9 @@ import { HomeHeader } from "./components/HomeHeader";
 const Home: NextPage = () => {
   return (
     <>
+      <Head>
+        <title>Augusto Marsola | Front End Developer</title>
+      </Head>
       <HomeHeader />
       <div>
         Amostra de Conteudo

@@ -15,12 +15,13 @@ export function HomeHeader() {
   return (
     <Content>
       <Particles
+        className="particleContent"
         id="tsparticles"
         init={particlesInit}
         options={{
           background: {
             color: {
-              value: "#0d47a1",
+              value: "#232323",
             },
           },
           fpsLimit: 120,
