@@ -1,5 +1,5 @@
 import { loadFull } from "tsparticles";
-import { Content } from "./HomeHeader.style";
+import { Content } from "./HeaderHome.styles";
 import { ParticlesContent } from "./ParticlesContent";
 
 export function HomeHeader() {
