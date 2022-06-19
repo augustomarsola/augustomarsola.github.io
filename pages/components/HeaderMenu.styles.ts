@@ -27,7 +27,7 @@ export const Content = styled.nav`
     border: none;
     cursor: pointer;
     display: flex;
-    line-height: 0.8;
+    line-height: 0.7;
   }
 
   .menuMobileButton__icon {
