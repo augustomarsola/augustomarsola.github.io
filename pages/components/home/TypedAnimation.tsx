@@ -8,29 +8,29 @@ const rolesForTypingAnimation = [
   "UX/UI design",
 ];
 
-const typeOptions = {
-  strings: [
-    "desenvolvimento front-end",
-    "desenvolvimento de produtos digitais",
-    "UX/UI design",
-  ],
-  startDelay: 300,
-  typeSpeed: 40,
-  backSpeed: 100,
-  backDelay: 100,
-  smartBackspace: true,
-  loop: true,
-  showCursor: true,
-  cursorChar: "!",
-};
-
 export function TypedAnimation() {
   const spanTyping = useRef<HTMLParagraphElement>(null);
-  const [teste, setTeste] = useState("Teste");
 
   useEffect(() => {
+    const typeOptions = {
+      strings: rolesForTypingAnimation,
+      startDelay: 300,
+      typeSpeed: 40,
+      backSpeed: 60,
+      backDelay: 2000,
+      smartBackspace: true,
+      loop: true,
+      showCursor: true,
+    };
+
     const typed = new Typed(spanTyping.current!, typeOptions);
+
+    return () => {
+      // Make sure to destroy Typed instance during cleanup
+      // to prevent memory leaks
+      typed.destroy();
+    };
   }, []);
 
-  return <Content ref={spanTyping}></Content>;
+  return <Content ref={spanTyping}>desenvolvimento front-end</Content>;
 }

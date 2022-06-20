@@ -79,7 +79,6 @@ export function HomeHeader() {
       <div className="homeDescription">
         <p>Olá, eu sou Augusto, um entusiasta em</p>
         <TypedAnimation />
-        <p className="typingStyle">{/* desenvolvimento front-end */}</p>
       </div>
       <h1>Vamos ver</h1>
     </Content>
