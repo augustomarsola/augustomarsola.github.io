@@ -1,6 +1,13 @@
+import { useState } from "react";
 import { Content } from "./HeaderMenu.styles";
 
 export function HeaderMenu() {
+  const [menuMobileActive, setMenuMobileActive] = useState("");
+
+  function handleMenuMobileClick() {
+    setMenuMobileActive((status) => (status ? "" : "isActive"));
+  }
+
   return (
     <Content>
       <div>
@@ -21,8 +28,12 @@ export function HeaderMenu() {
           />
         </svg>
       </div>
-      <div className="menuMobileContainer">
-        <button className="menuMobileButton" type="button">
+      <div className={`menuMobileContainer ${menuMobileActive}`}>
+        <button
+          className="menuMobileButton"
+          type="button"
+          onClick={handleMenuMobileClick}
+        >
           Menu
           <span className="menuMobileButton__icon">
             <i></i>
