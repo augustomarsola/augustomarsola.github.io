@@ -18,7 +18,8 @@
     "styled-components": "^5.3.5",
     "tsparticles": "^2.0.6",
     "tsparticles-engine": "^2.1.0",
-    "tsparticles-preset-links": "^2.1.0"
+    "tsparticles-preset-links": "^2.1.0",
+    "typed.js": "^2.0.12"
   },
   "devDependencies": {
     "@types/node": "18.0.0",

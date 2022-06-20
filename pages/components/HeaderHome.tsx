@@ -2,6 +2,8 @@ import { Content } from "./HeaderHome.styles";
 import { HeaderMenu } from "./HeaderMenu";
 import { ParticlesContent } from "./ParticlesContent";
 import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import Typed from "typed.js";
 
 const iconDown = {
   hidden: {
@@ -25,7 +27,41 @@ const iconUpper = {
   },
 };
 
+const rolesForTypingAnimation = [
+  "desenvolvimento front-end",
+  "desenvolvimento de produtos digitais",
+  "UX/UI design",
+];
+
+const typeOptions = {
+  strings: [
+    "desenvolvimento front-end",
+    "desenvolvimento de produtos digitais",
+    "UX/UI design",
+  ],
+  startDelay: 300,
+  typeSpeed: 100,
+  backSpeed: 100,
+  backDelay: 100,
+  smartBackspace: true,
+  loop: true,
+  showCursor: true,
+  cursorChar: "!",
+};
+
 export function HomeHeader() {
+  const spanTyping = useRef<HTMLParagraphElement>(null);
+  const [teste, setTeste] = useState("Teste");
+
+  useEffect(() => {
+    const typed = new Typed(spanTyping.current!, typeOptions);
+  }, []);
+
+  function handleTypingAnimation(e: HTMLParagraphElement) {
+    const value = e.textContent;
+    console.log(value);
+  }
+
   return (
     <Content>
       <ParticlesContent />
@@ -71,6 +107,13 @@ export function HomeHeader() {
         >
           Augusto Marsola
         </motion.span>
+      </div>
+      <div className="homeButtons"></div>
+      <div className="homeDescription">
+        <p>Olá, eu sou Augusto, um entusiasta em</p>
+        <p className="typingStyle" ref={spanTyping}>
+          {/* desenvolvimento front-end */}
+        </p>
       </div>
       <h1>Vamos ver</h1>
     </Content>

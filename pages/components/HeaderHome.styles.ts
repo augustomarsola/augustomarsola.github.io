@@ -19,7 +19,14 @@ export const Content = styled.div`
       text-transform: uppercase;
       font-weight: 300;
       letter-spacing: 0.35rem;
-      /* font-size: 1.25rem; */
+    }
+  }
+
+  .homeDescription {
+    text-align: center;
+
+    .typingStyle {
+      font-weight: 600;
     }
   }
 `;
