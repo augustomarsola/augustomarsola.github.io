@@ -29,4 +29,15 @@ export const Content = styled.div`
       font-weight: 600;
     }
   }
+
+  .homeButtons {
+    display: flex;
+    justify-content: center;
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 `;

@@ -2,8 +2,7 @@ import { Content } from "./HeaderHome.styles";
 import { HeaderMenu } from "./HeaderMenu";
 import { ParticlesContent } from "../particles/ParticlesContent";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import Typed from "typed.js";
+import { GitHub, Phone, Mail, Linkedin } from "react-feather";
 import { TypedAnimation } from "./TypedAnimation";
 
 const iconDown = {
@@ -75,10 +74,23 @@ export function HomeHeader() {
           Augusto Marsola
         </motion.span>
       </div>
-      <div className="homeButtons"></div>
       <div className="homeDescription">
         <p>Olá, eu sou Augusto, um entusiasta em</p>
         <TypedAnimation />
+      </div>
+      <div className="homeButtons">
+        <a href="#">
+          <Linkedin />
+        </a>
+        <a href="#">
+          <Mail />
+        </a>
+        <a href="#">
+          <Phone />
+        </a>
+        <a href="#">
+          <GitHub />
+        </a>
       </div>
       <h1>Vamos ver</h1>
     </Content>

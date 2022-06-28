@@ -6,6 +6,7 @@ const rolesForTypingAnimation = [
   "desenvolvimento front-end",
   "desenvolvimento de produtos digitais",
   "UX/UI design",
+  "desenvolvimento de sistemas",
 ];
 
 export function TypedAnimation() {
