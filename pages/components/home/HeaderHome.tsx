@@ -2,7 +2,7 @@ import { Content } from "./HeaderHome.styles";
 import { HeaderMenu } from "./HeaderMenu";
 import { ParticlesContent } from "../particles/ParticlesContent";
 import { motion } from "framer-motion";
-import { GitHub, Phone, Mail, Linkedin } from "react-feather";
+import { GitHub, Phone, Mail, Linkedin, FileText } from "react-feather";
 import { TypedAnimation } from "./TypedAnimation";
 
 const iconDown = {
@@ -79,7 +79,12 @@ export function HomeHeader() {
         <TypedAnimation />
       </div>
       <div className="homeButtons">
-        <a href="#">
+        <a
+          href="https://www.linkedin.com/in/augusto-marsola/"
+          target="_blank"
+          rel="noreferrer"
+          title="LinkedIn"
+        >
           <Linkedin />
         </a>
         <a href="#">
@@ -91,8 +96,10 @@ export function HomeHeader() {
         <a href="#">
           <GitHub />
         </a>
+        <a href="#">
+          <FileText />
+        </a>
       </div>
-      <h1>Vamos ver</h1>
     </Content>
   );
 }

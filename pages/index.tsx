@@ -9,11 +9,6 @@ const Home: NextPage = () => {
         <title>Augusto Marsola | Front End Developer</title>
       </Head>
       <HomeHeader />
-      <div>
-        Amostra de Conteudo
-        <p>Tipo esse</p>
-        <h1>E esse</h1>
-      </div>
     </>
   );
 };
