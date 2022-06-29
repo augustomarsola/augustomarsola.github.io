@@ -23,9 +23,9 @@ export function ParticlesContent() {
       },
       links: {
         color: "#EBEBEB",
-        distance: 150,
+        distance: 170,
         enable: true,
-        opacity: 0.5,
+        opacity: 0.3,
         width: 1,
       },
       collisions: {
@@ -38,7 +38,7 @@ export function ParticlesContent() {
           default: "bounce",
         },
         random: false,
-        speed: 2,
+        speed: 1,
         straight: false,
       },
       number: {
@@ -46,16 +46,16 @@ export function ParticlesContent() {
           enable: true,
           area: 500,
         },
-        value: 40,
+        value: 30,
       },
       opacity: {
-        value: 0.5,
+        value: 0.3,
       },
       shape: {
         type: "circle",
       },
       size: {
-        value: { min: 1, max: 2 },
+        value: { min: 1, max: 3 },
       },
     },
     detectRetina: true,

@@ -5,8 +5,8 @@ import { Content } from "./TypedAnimation.style";
 const rolesForTypingAnimation = [
   "desenvolvimento front-end",
   "desenvolvimento de produtos digitais",
-  "UX/UI design",
   "desenvolvimento de sistemas",
+  "UX/UI design",
 ];
 
 export function TypedAnimation() {

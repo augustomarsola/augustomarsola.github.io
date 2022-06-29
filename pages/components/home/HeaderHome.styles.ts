@@ -13,20 +13,6 @@ export const Content = styled.div`
     gap: 2rem;
   }
 
-  .logoAugusto {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1.25rem;
-
-    span {
-      text-transform: uppercase;
-      font-weight: 300;
-      letter-spacing: 0.35rem;
-    }
-  }
-
   .homeDescription {
     text-align: center;
     line-height: 1.4;
