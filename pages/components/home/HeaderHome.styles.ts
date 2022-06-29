@@ -4,8 +4,13 @@ export const Content = styled.div`
   min-height: 100vh;
   overflow-x: hidden;
 
-  h1 {
-    text-align: center;
+  .homeMainContent {
+    min-height: calc(100vh - 9rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
   }
 
   .logoAugusto {
@@ -24,10 +29,7 @@ export const Content = styled.div`
 
   .homeDescription {
     text-align: center;
-
-    .typingStyle {
-      font-weight: 600;
-    }
+    line-height: 1.4;
   }
 
   .homeButtons {
@@ -70,6 +72,12 @@ export const Content = styled.div`
 
   @media (min-width: 720px) {
     gap: 0.75rem;
+
+    .homeDescription {
+      font-size: 2rem;
+      /* line-height: 2.5rem; */
+    }
+
     .homeButtons {
       a {
         padding: 0.75rem;
