@@ -87,16 +87,16 @@ export function HomeHeader() {
         >
           <Linkedin />
         </a>
-        <a href="#">
-          <Mail />
-        </a>
-        <a href="#">
-          <Phone />
-        </a>
-        <a href="#">
+        <a href="#" title="GitHub">
           <GitHub />
         </a>
-        <a href="#">
+        <a href="#" title="Email">
+          <Mail />
+        </a>
+        <a href="#" title="Telefone">
+          <Phone />
+        </a>
+        <a href="/cv/CV-AugustoMarsola.pdf" title="Currículo" target="_blank">
           <FileText />
         </a>
       </div>
