@@ -9,16 +9,20 @@ const rolesForTypingAnimation = [
   "UX/UI design",
 ];
 
-export function TypedAnimation() {
+interface TypedAnimationProps {
+  timeDelay: number;
+}
+
+export function TypedAnimation({ timeDelay }: TypedAnimationProps) {
   const spanTyping = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
     const typeOptions = {
       strings: rolesForTypingAnimation,
-      startDelay: 300,
+      startDelay: timeDelay * 1000,
       typeSpeed: 40,
       backSpeed: 60,
-      backDelay: 2000,
+      backDelay: 2500,
       smartBackspace: true,
       loop: true,
       showCursor: true,
@@ -31,7 +35,7 @@ export function TypedAnimation() {
       // to prevent memory leaks
       typed.destroy();
     };
-  }, []);
+  }, [timeDelay]);
 
   return <Content ref={spanTyping}>desenvolvimento front-end</Content>;
 }
