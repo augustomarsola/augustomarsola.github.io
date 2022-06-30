@@ -6,14 +6,22 @@ import { TypedAnimation } from "./TypedAnimation";
 import { LogoControl } from "./LogoControl";
 import { HeaderSocialButtons } from "./HeaderSocialButtons";
 
+const delayTime = 2.5;
+
 const textAnimation = {
   hidden: { opacity: 0, translateY: 50 },
   visible: {
     opacity: 1,
     translateY: 0,
     transition: {
-      duration: 2,
-      delay: 2,
+      default: {
+        duration: 2,
+        delay: delayTime,
+      },
+      opacity: {
+        duration: 3,
+        delay: delayTime,
+      },
     },
   },
 };
@@ -41,9 +49,7 @@ export function HomeHeader() {
               initial={"hidden"}
               animate={"visible"}
             >
-              <TypedAnimation
-                timeDelay={textAnimation.visible.transition.delay}
-              />
+              <TypedAnimation timeDelay={delayTime} />
             </motion.p>
           </div>
           <div>

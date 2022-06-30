@@ -17,11 +17,11 @@ export function HeaderSocialButtons() {
     <Content>
       <motion.div
         className="homeButtons"
-        initial={{ opacity: 0, translateY: 200 }}
+        initial={{ opacity: 0, translateY: 50 }}
         animate={{ opacity: 1, translateY: 0 }}
         transition={{
-          default: { duration: 2, delay: 2 },
-          opacity: { duration: 3, delay: 2 },
+          default: { duration: 2, delay: 2.5 },
+          opacity: { duration: 3, delay: 2.5 },
         }}
       >
         <a
