@@ -30,8 +30,8 @@ export function HomeHeader() {
   return (
     <Content>
       <ParticlesContent />
-      <HeaderMenu />
-      <div className="homeMainContent">
+      {/* <HeaderMenu /> */}
+      <div className="homeMainContent" style={{ minHeight: "100vh" }}>
         <LogoControl />
         <div className="homeDescription">
           <div>

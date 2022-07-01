@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { FormEvent, MouseEvent, MouseEventHandler } from "react";
 import { FileText, GitHub, Linkedin, Mail, Phone } from "react-feather";
+import { Tooltip } from "../tooltip/Tooltip";
 import { Content } from "./HeaderSocialButtons.styles";
 
 export function HeaderSocialButtons() {
@@ -24,15 +25,18 @@ export function HeaderSocialButtons() {
           opacity: { duration: 3, delay: 2.5 },
         }}
       >
-        <a
-          href="https://www.linkedin.com/in/augusto-marsola/"
-          target="_blank"
-          rel="noreferrer"
-          title="LinkedIn"
-          onMouseMove={mostraHover}
-        >
-          <Linkedin />
-        </a>
+        <Tooltip text="LinkedIn">
+          <a
+            href="https://www.linkedin.com/in/augusto-marsola/"
+            target="_blank"
+            rel="noreferrer"
+            title="LinkedIn"
+            onMouseMove={mostraHover}
+          >
+            <Linkedin />
+          </a>
+        </Tooltip>
+
         <a
           href="https://github.com/augustomarsola"
           target="_blank"

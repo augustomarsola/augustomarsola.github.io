@@ -4,6 +4,8 @@ import { Content } from "./TypedAnimation.style";
 
 const rolesForTypingAnimation = [
   "desenvolvimento front-end",
+  "desenvolvimento com React",
+  "desenvolvimento com Next.js",
   "desenvolvimento de produtos digitais",
   "desenvolvimento de sistemas",
   "UX/UI design",
@@ -19,7 +21,7 @@ export function TypedAnimation({ timeDelay }: TypedAnimationProps) {
   useEffect(() => {
     const typeOptions = {
       strings: rolesForTypingAnimation,
-      startDelay: timeDelay * 1000,
+      startDelay: timeDelay * 1200,
       typeSpeed: 40,
       backSpeed: 60,
       backDelay: 2500,
