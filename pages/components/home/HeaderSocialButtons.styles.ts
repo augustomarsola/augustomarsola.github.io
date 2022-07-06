@@ -33,7 +33,8 @@ export const Content = styled.div`
         transition: top 0.4s ease-in-out;
       }
 
-      &:hover {
+      &:hover,
+      &.linkHover {
         color: var(--secondary);
         &::before {
           top: 0;

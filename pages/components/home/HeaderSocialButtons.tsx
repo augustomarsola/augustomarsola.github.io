@@ -1,13 +1,18 @@
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
+import "tippy.js/animations/shift-away.css";
 import { motion } from "framer-motion";
-import { MouseEvent } from "react";
+import { MouseEvent, useState } from "react";
 import { FileText, GitHub, Linkedin, Mail, Phone } from "react-feather";
 import { Content } from "./HeaderSocialButtons.styles";
 
 export function HeaderSocialButtons() {
+  const [linkHover, setLinkHover] = useState("");
+  const [textTel, setTextTel] = useState("(11) 98467-6903");
+  const [textMail, setTextMail] = useState("augusto.marsola@live.com");
+
   function mostraHover() {
-    console.log("Saí");
+    // console.log(telRef.current);
   }
 
   function handleTextCopy(event: MouseEvent<HTMLAnchorElement>, text: string) {
@@ -26,7 +31,7 @@ export function HeaderSocialButtons() {
           opacity: { duration: 3, delay: 2.5 },
         }}
       >
-        <Tippy content="LinkedIn" interactive={true} interactiveBorder={20}>
+        <Tippy content="LinkedIn" interactive={true} animation="shift-away">
           <a
             href="https://www.linkedin.com/in/augusto-marsola/"
             target="_blank"
@@ -38,7 +43,7 @@ export function HeaderSocialButtons() {
           </a>
         </Tippy>
 
-        <Tippy content="GitHub" interactive={true} interactiveBorder={20}>
+        <Tippy content="GitHub" interactive={true} animation="shift-away">
           <a
             href="https://github.com/augustomarsola"
             target="_blank"
@@ -49,23 +54,21 @@ export function HeaderSocialButtons() {
           </a>
         </Tippy>
 
-        <Tippy
-          content="augusto.marsola@live.com"
-          interactive={true}
-          interactiveBorder={20}
-        >
+        <Tippy content={textMail} interactive={true} animation="shift-away">
           <a
             href="#"
             title="Copiar Email"
-            onClick={(event) =>
-              handleTextCopy(event, "augusto.marsola@live.com")
-            }
+            onClick={(event) => {
+              event.preventDefault();
+              handleTextCopy(event, "augusto.marsola@live.com");
+              setTextMail("Email Copiado!");
+            }}
           >
             <Mail />
           </a>
         </Tippy>
 
-        <Tippy content="(11) 98467-6903" interactive={true}>
+        <Tippy content={textTel} interactive={true} animation="shift-away">
           <a
             href="#"
             title="Telefone"
@@ -75,7 +78,7 @@ export function HeaderSocialButtons() {
           </a>
         </Tippy>
 
-        <Tippy content="Currículo" interactive={true} interactiveBorder={20}>
+        <Tippy content="Currículo" interactive={true} animation="shift-away">
           <a
             href="/cv/CV-AugustoMarsola.pdf"
             title="Currículo Augusto"
