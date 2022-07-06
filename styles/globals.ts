@@ -26,4 +26,13 @@ export const GlobalStyle = createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
+  
+  .tippy-box {
+    background-color: var(--primary);
+    color: var(--secondary);
+  }
+
+  .tippy-arrow {
+    color: var(--primary);
+  }
 `;

@@ -1,7 +1,8 @@
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
 import { motion } from "framer-motion";
-import { FormEvent, MouseEvent, MouseEventHandler } from "react";
+import { MouseEvent } from "react";
 import { FileText, GitHub, Linkedin, Mail, Phone } from "react-feather";
-import { Tooltip } from "../tooltip/Tooltip";
 import { Content } from "./HeaderSocialButtons.styles";
 
 export function HeaderSocialButtons() {
@@ -25,43 +26,64 @@ export function HeaderSocialButtons() {
           opacity: { duration: 3, delay: 2.5 },
         }}
       >
-        <Tooltip text="LinkedIn">
+        <Tippy content="LinkedIn" interactive={true} interactiveBorder={20}>
           <a
             href="https://www.linkedin.com/in/augusto-marsola/"
             target="_blank"
             rel="noreferrer"
-            title="LinkedIn"
+            title="Augusto LinkedIn"
             onMouseMove={mostraHover}
           >
             <Linkedin />
           </a>
-        </Tooltip>
+        </Tippy>
 
-        <a
-          href="https://github.com/augustomarsola"
-          target="_blank"
-          rel="noreferrer"
-          title="GitHub"
+        <Tippy content="GitHub" interactive={true} interactiveBorder={20}>
+          <a
+            href="https://github.com/augustomarsola"
+            target="_blank"
+            rel="noreferrer"
+            title="Augusto GitHub"
+          >
+            <GitHub />
+          </a>
+        </Tippy>
+
+        <Tippy
+          content="augusto.marsola@live.com"
+          interactive={true}
+          interactiveBorder={20}
         >
-          <GitHub />
-        </a>
-        <a
-          href="#"
-          title="Email"
-          onClick={(event) => handleTextCopy(event, "augusto.marsola@live.com")}
-        >
-          <Mail />
-        </a>
-        <a
-          href="#"
-          title="Telefone"
-          onClick={(event) => handleTextCopy(event, "(11) 98467-6903")}
-        >
-          <Phone />
-        </a>
-        <a href="/cv/CV-AugustoMarsola.pdf" title="Currículo" target="_blank">
-          <FileText />
-        </a>
+          <a
+            href="#"
+            title="Copiar Email"
+            onClick={(event) =>
+              handleTextCopy(event, "augusto.marsola@live.com")
+            }
+          >
+            <Mail />
+          </a>
+        </Tippy>
+
+        <Tippy content="(11) 98467-6903" interactive={true}>
+          <a
+            href="#"
+            title="Telefone"
+            onClick={(event) => handleTextCopy(event, "(11) 98467-6903")}
+          >
+            <Phone />
+          </a>
+        </Tippy>
+
+        <Tippy content="Currículo" interactive={true} interactiveBorder={20}>
+          <a
+            href="/cv/CV-AugustoMarsola.pdf"
+            title="Currículo Augusto"
+            target="_blank"
+          >
+            <FileText />
+          </a>
+        </Tippy>
       </motion.div>
     </Content>
   );
