@@ -5,10 +5,10 @@ import { Content } from "./TypedAnimation.style";
 const rolesForTypingAnimation = [
   "desenvolvimento front-end",
   "desenvolvimento com React",
+  "desenvolvimento com TypeScript",
   "desenvolvimento com Next.js",
   "desenvolvimento de produtos digitais",
   "desenvolvimento de sistemas",
-  "UX/UI design",
 ];
 
 interface TypedAnimationProps {

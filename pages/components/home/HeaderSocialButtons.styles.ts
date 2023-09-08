@@ -33,7 +33,12 @@ export const Content = styled.div`
         transition: top 0.4s ease-in-out;
       }
 
+      &:focus {
+        outline: none;
+      }
+
       &:hover,
+      &:focus,
       &.linkHover {
         color: var(--secondary);
         &::before {
