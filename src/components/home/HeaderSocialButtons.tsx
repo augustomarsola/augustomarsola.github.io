@@ -1,9 +1,9 @@
 import Tippy from "@tippyjs/react";
-import "tippy.js/dist/tippy.css";
-import "tippy.js/animations/shift-away.css";
 import { motion } from "framer-motion";
 import { MouseEvent, useState } from "react";
 import { FileText, GitHub, Linkedin, Mail, Phone } from "react-feather";
+import "tippy.js/animations/shift-away.css";
+import "tippy.js/dist/tippy.css";
 import { Content } from "./HeaderSocialButtons.styles";
 
 export function HeaderSocialButtons() {
@@ -61,7 +61,7 @@ export function HeaderSocialButtons() {
           <Tippy content={textMail} interactive={true} animation="shift-away">
             <a
               href="mailto:augusto.marsola@live.com"
-              title="Copiar Email"
+              title="Copy Email"
               onClick={(event) => {
                 event.preventDefault();
                 handleTextCopy(event, "augusto.marsola@live.com");
@@ -76,10 +76,10 @@ export function HeaderSocialButtons() {
           <Tippy content={textTel} interactive={true} animation="shift-away">
             <a
               href="tel:(11) 98467-6903"
-              title="Copiar Telefone"
+              title="Copy Phone Number"
               onClick={(event) => {
                 event.preventDefault();
-                handleTextCopy(event, "(11) 98467-6903");
+                handleTextCopy(event, "+1(407)437-2734");
               }}
             >
               <Phone />
@@ -88,10 +88,10 @@ export function HeaderSocialButtons() {
         </span>
 
         <span>
-          <Tippy content="Currículo" interactive={true} animation="shift-away">
+          <Tippy content="Resume" interactive={true} animation="shift-away">
             <a
-              href="/cv/CV-AugustoMarsola.pdf"
-              title="Currículo Augusto"
+              href="/cv/Augusto_Marsola_Senior_Frontend_Fullstack_Resume.pdf"
+              title="Augusto's Resume"
               target="_blank"
             >
               <FileText />

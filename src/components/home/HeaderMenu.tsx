@@ -44,16 +44,16 @@ export function HeaderMenu() {
             <a href="#">Home</a>
           </li>
           <li>
-            <a href="#">Quem Sou</a>
+            <a href="#">About Me</a>
           </li>
           <li>
-            <a href="#">O Que Faço</a>
+            <a href="#">What I Do</a>
           </li>
           <li>
-            <a href="#">Portfólio</a>
+            <a href="#">Portfolio</a>
           </li>
           <li>
-            <a href="#">Contato</a>
+            <a href="#">Contact</a>
           </li>
         </ul>
       </div>

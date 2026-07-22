@@ -40,7 +40,7 @@ export function HomeHeader() {
               initial={"hidden"}
               animate={"visible"}
             >
-              Olá, eu sou Augusto, um entusiasta em
+              Hi, I&apos;m Augusto, a Front-End and Full-Stack developer with expertise in
             </motion.p>
           </div>
           <div>
@@ -58,7 +58,7 @@ export function HomeHeader() {
               initial={"hidden"}
               animate={"visible"}
             >
-              que adora novas tecnologias.
+              and a passion for technology and building digital solutions.
             </motion.p>
           </div>
         </div>
