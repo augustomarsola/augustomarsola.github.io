@@ -3,12 +3,20 @@ import Typed from "typed.js";
 import { Content } from "./TypedAnimation.style";
 
 const rolesForTypingAnimation = [
-  "desenvolvimento front-end",
-  "desenvolvimento com React",
-  "desenvolvimento com TypeScript",
-  "desenvolvimento com Next.js",
-  "desenvolvimento de produtos digitais",
-  "desenvolvimento de sistemas",
+  "Front-End Development",
+  "Full-Stack Development",
+  "React",
+  "TypeScript",
+  "Next.js",
+  "Node.js",
+  ".NET",
+  "AWS",
+  "GCP",
+  "Microsoft Azure",
+  "Python",
+  "RPA",
+  "Digital Product Development",
+  "Software Development",
 ];
 
 interface TypedAnimationProps {
@@ -39,5 +47,5 @@ export function TypedAnimation({ timeDelay }: TypedAnimationProps) {
     };
   }, [timeDelay]);
 
-  return <Content ref={spanTyping}>desenvolvimento front-end</Content>;
+  return <Content ref={spanTyping}>Front-End Development</Content>;
 }
