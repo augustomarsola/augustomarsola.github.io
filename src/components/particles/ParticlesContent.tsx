@@ -1,13 +1,13 @@
 import Particles from "react-tsparticles";
 import type { Engine } from "tsparticles-engine";
-import { loadLinksPreset } from "tsparticles-preset-links";
+import { loadFull } from "tsparticles";
 import { Content } from "./ParticlesContent.style";
 
 export function ParticlesContent() {
   // this customizes the component tsParticles installation
   async function customInit(engine: Engine): Promise<void> {
-    // this adds the preset to tsParticles, you can safely use the
-    await loadLinksPreset(engine);
+    // this loads the components used by the particle configuration
+    await loadFull(engine);
   }
 
   const options = {
